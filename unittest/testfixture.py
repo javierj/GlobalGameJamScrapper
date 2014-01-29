@@ -3,7 +3,7 @@ __author__ = 'Javier'
 from bs4 import BeautifulSoup
 
 class MockWebClient():
-    def __init__(self, url = None):
+    def __init__(self, url = "MockURL"):
         self.count_click = 0
         self.url = url
     def load(self, html):
@@ -12,6 +12,8 @@ class MockWebClient():
         return BeautifulSoup(self.html)
     def click(self, url):
         self.count_click += 1
+    def setUrl(self, nexturl):
+        pass
 
 
 class Fixture:
@@ -519,5 +521,238 @@ You can switch between two forms of the spirit you control. Each form can pick u
         self.client.load(self.html)
 
         self.gamedetail=u"""
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-5108 node-type-game section-2014">
+  <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+    <div class="l-page">
+  <header class="l-header" role="banner">
+    <div class="l-header--inner">
+      <div class="logo"></div>
+        <div class="l-region l-region--header">
+    <div id="block-delta-blocks-site-name" class="block block--delta-blocks block--delta-blocks-site-name">
+        <div class="block__content">
+    <h2 class="site-name"><a href="/" title="Return to the Global Game Jam home page"><span>Global Game Jam</span></a></h2>  </div>
+</div>
+<div id="block-delta-blocks-site-slogan" class="block block--delta-blocks block--delta-blocks-site-slogan">
+        <div class="block__content">
+    <h6 class="site-slogan">24 26 January 2014</h6>  </div>
+</div>
+  </div>
+        <div class="l-region l-region--navigation">
+    <div id="block-search-form" role="search" class="block block--search block--search-form">
+        <div class="block__content">
+    <form class="search-form search-block-form" action="/2014/games/return" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <input title="Enter the terms you wish to search for." placeholder="Search" class="custom-search-box form-text" type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-b4D0mKY7jlb2LGV0J8oF5N-T49pHFkdvmCmOGVRRp3A" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>  </div>
+</div>
+<nav id="block-system-main-menu" role="navigation" class="block block--system block--menu block--system-main-menu">
+
+  <ul class="menu"><li class="first leaf"><a href="/about">About</a></li>
+<li class="leaf"><a href="/faq">FAQ</a></li>
+<li class="leaf"><a href="/2014/games" title="">Games</a></li>
+<li class="last leaf"><a href="/jam-sites" title="">Locations</a></li>
+</ul></nav>
+  </div>
+    </div>
+    <div class="l-user-links">
+      <div class="l-user-links--inner">
+          <div class="l-region l-region--user-links">
+    <div id="block-user-login" role="form" class="block block--user block--user-login">
+        <h2 class="block__title">Log in</h2>
+      <div class="block__content">
+    <div class="column drupal-login">
+      <form class="user-login-form" action="/2014/games/return?destination=node/5108" method="post" id="user-login-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+ <input placeholder="Username" type="text" id="edit-name" name="name" value="" size="15" maxlength="60" class="form-text required" />
+</div>
+<div class="form-item form-type-password form-item-pass">
+ <input placeholder="Password" type="password" id="edit-pass" name="pass" size="15" maxlength="128" class="form-text required" />
+</div>
+<input type="hidden" name="form_build_id" value="form-q1Sixz0dGpvySxd3KgDO-B9bVZ0KtUbU3dYB2rE3KzA" />
+<input type="hidden" name="form_id" value="user_login_block" />
+<div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Log in" class="form-submit" /></div></div></form>    </div>
+    <div class="column fb-login">
+      <p>Connect with:</p><a href="https://www.facebook.com/dialog/oauth?client_id=620875854629299&amp;redirect_uri=http%3A//globalgamejam.org/fboauth/connect&amp;scope=email"><span class="fb-button">Facebook</span></a>    </div>
+    <div class="login-footer">
+      <div class="column">
+        <a href="/user/password" class="request-password">Forgot password?</a>      </div>
+      <div class="column sign-up">
+        <p>Don't have an account yet?</p> <a href='/user/signup/to'>Sign up</a>      </div>
+    </div>
+  </div>
+</div>
+  </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="l-intro">
+      </div>
+
+  <a id="main-content"></a>
+  <div class="l-main">
+    <div class="l-content" role="main">
+                          <h1>The Return</h1>
+                                    <div class="l-content--inner">
+        <article about="/2014/games/return" typeof="sioc:Item foaf:Document" role="article" class="node node--game node--full node--game--full">
+
+  <div class="featured-image">
+          <div id="block-views-games-featured-image-block" class="block block--views block--views-games-featured-image-block">
+        <div class="block__content">
+    <div class="view view-games view-id-games view-display-id-featured_image_block view-dom-id-2c1b331008330846daa4c1814f58f86c">
+
+
+
+      <div class="view-content">
+      <div class="item-list"><ul>  <li class="views-row views-row-1 views-row-odd views-row-first views-row-last"></li>
+</ul></div>    </div>
+
+
+
+
+
+
+</div>  </div>
+</div>
+      </div>
+
+  <div class="node__content">
+    <div class="links">
+          </div>
+
+    <div class="field field--name-field-game-about field--type-text-long field--label-hidden">
+	<div class="field__items">
+	<div class="field__item even">A horror story took place in an island and you are trying to find what happened to your family.</div></div></div><div class="field field--name-og-group-ref field--type-entityreference field--label-inline clearfix"><div class="field__label">Jam Site:&nbsp;</div><div class="field__items"><div class="field__item even"><a href="http://globalgamejam.org/2014/jam-sites/iran-game-development-institute">Iran Game Development Institute</a></div></div></div><div class="field field--name-field-game-year field--type-entityreference field--label-inline clearfix"><div class="field__label">Jam year:&nbsp;</div><div class="field__items"><div class="field__item even"><a href="/2014/jam-sites">2014</a></div></div></div><div class="field field--name-field-game-platforms field--type-list-text field--label-inline clearfix"><div class="field__label">Platforms:&nbsp;</div><div class="field__items"><div class="field__item even"><div class="textformatter-list">MS Windows</div></div></div></div><div class="field field--name-field-game-tools field--type-list-text field--label-inline clearfix">
+
+	<div class="field__label">Tools and Technologies:&nbsp;</div>
+	<div class="field__items">
+	<div class="field__item even">
+	<div class="textformatter-list">Unity (any product)</div></div></div></div>
+	<div class="field field--name-field-game-source-files field--type-file field--label-inline clearfix"><div class="field__label">Source files:&nbsp;</div><div class="field__items"><div class="field__item even"><span class="file"><img class="file-icon" alt="" title="application/zip" src="/modules/file/icons/package-x-generic.png" /> <a href="http://ggj.s3.amazonaws.com/games/2014/01/27/2300/The-Return_Source.zip" type="application/zip; length=0">The-Return_Source.zip</a></span></div></div></div><div class="field field--name-field-game-executable field--type-file field--label-inline clearfix"><div class="field__label">Executable:&nbsp;</div><div class="field__items"><div class="field__item even"><span class="file"><img class="file-icon" alt="" title="application/zip" src="/modules/file/icons/package-x-generic.png" /> <a href="http://ggj.s3.amazonaws.com/games/2014/01/27/2301/The_Return.zip" type="application/zip; length=0">The_Return.zip</a></span></div></div></div>  </div>
+
+  <div class="game-sidebar">
+          <div class="team">
+        <h3>Team</h3>
+        <div class="team-image">
+                      <div id="block-views-games-team-image-block" class="block block--views block--views-games-team-image-block">
+        <div class="block__content">
+    <div class="view view-games view-id-games view-display-id-team_image_block view-dom-id-1576cbd1257fb0c5c1c7d0dff03d5c91">
+
+
+
+      <div class="view-content">
+      <div class="item-list"><ul>  <li class="views-row views-row-1 views-row-odd views-row-first views-row-last"></li>
+</ul></div>    </div>
+
+
+
+
+
+
+</div>  </div>
+</div>
+                  </div>
+        <div class="team-members">
+                      <div id="block-views-game-users-team-block" class="block block--views block--views-game-users-team-block">
+        <div class="block__content">
+    <div class="view view-game-users view-id-game_users view-display-id-team_block view-dom-id-0b10e35136759baec73b49faf165a59c">
+
+
+
+      <div class="view-content">
+      <div class="item-list"><ul>  <li class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+  <div class="views-field views-field-field-user-image">        <div class="field-content"><a href="/users/amir-badamchi"><span data-picture="">
+<span data-src="http://globalgamejam.org/sites/default/files/styles/user_profile_picture__normal/public/user/amir.jpg?itok=x9KPmsuX"  data-width="56" data-height="56"></span>
+<span data-media="(min-width: 0)" data-src="http://globalgamejam.org/sites/default/files/styles/user_profile_picture__narrow/public/user/amir.jpg?itok=dyWR4Elg"  data-width="42" data-height="42"></span>
+<span data-media="(min-width: 0) and (min-device-pixel-ratio: 2), (min-width: 0) and (-o-min-device-pixel-ratio: 2), (min-width: 0) and (-webkit-min-device-pixel-ratio: 2), (min-width: 0) and (min-resolution: 2dppx)" data-src="http://globalgamejam.org/sites/default/files/styles/user_profile_picture__narrow_2x/public/user/amir.jpg?itok=ZT-3RVG0"  data-width="42" data-height="42"></span>
+<span data-media="(min-width: 740px)" data-src="http://globalgamejam.org/sites/default/files/styles/user_profile_picture__narrow/public/user/amir.jpg?itok=dyWR4Elg"  data-width="42" data-height="42"></span>
+<span data-media="(min-width: 740px) and (min-device-pixel-ratio: 2), (min-width: 740px) and (-o-min-device-pixel-ratio: 2), (min-width: 740px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 740px) and (min-resolution: 2dppx)" data-src="http://globalgamejam.org/sites/default/files/styles/user_profile_picture__narrow_2x/public/user/amir.jpg?itok=ZT-3RVG0"  data-width="42" data-height="42"></span>
+<span data-media="(min-width: 980px)" data-src="http://globalgamejam.org/sites/default/files/styles/user_profile_picture__normal/public/user/amir.jpg?itok=x9KPmsuX"  data-width="56" data-height="56"></span>
+<span data-media="(min-width: 980px) and (min-device-pixel-ratio: 2), (min-width: 980px) and (-o-min-device-pixel-ratio: 2), (min-width: 980px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 980px) and (min-resolution: 2dppx)" data-src="http://globalgamejam.org/sites/default/files/styles/user_profile_picture__normal_2x/public/user/amir.jpg?itok=ajp2NKre"  data-width="56" data-height="56"></span>
+<span data-media="(min-width: 1220px)" data-src="http://globalgamejam.org/sites/default/files/styles/user_profile_picture__wide/public/user/amir.jpg?itok=2oDl7QL8"  data-width="70" data-height="70"></span>
+<span data-media="(min-width: 1220px) and (min-device-pixel-ratio: 2), (min-width: 1220px) and (-o-min-device-pixel-ratio: 2), (min-width: 1220px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 1220px) and (min-resolution: 2dppx)" data-src="http://globalgamejam.org/sites/default/files/styles/user_profile_picture__wide_2x/public/user/amir.jpg?itok=QXgYG_MU"  data-width="70" data-height="70"></span>
+<noscript><img typeof="foaf:Image" src="http://globalgamejam.org/sites/default/files/styles/user_profile_picture__normal/public/user/amir.jpg?itok=x9KPmsuX" width="56" height="56" alt="" /></noscript>
+</span></a></div>  </div>
+  <div class="views-field views-field-name">        <span class="field-content"><a href="/users/amir-badamchi" title="View user profile." class="username">Amir Badamchi</a></span>  </div>
+<div class="administrative-links">
+  </div>
+</li>
+</ul></div>    </div>
+
+
+
+
+
+
+</div>  </div>
+</div>
+            <div class="game-add-jammers clearfix">
+                          </div>
+                  </div>
+      </div>
+      </div>
+</article>
+      </div>
+          </div>
+
+          </div>
+
+  <footer class="l-footer" role="contentinfo">
+      <div class="l-region l-region--footer">
+    <div id="block-views-sponsors-major-block" class="block block--views block--views-sponsors-major-block">
+        <div class="block__content">
+    <div class="view view-sponsors view-id-sponsors view-display-id-major_block view-dom-id-8fd7c3aff680eca6af5362936e7b0bd4">
+
+
+  <li class="views-row views-row-2 views-row-even views-row-last">
+  <div class="views-field views-field-field-sponsor-logo">        <div class="field-content"><a href="http://www.gamesprout.com" target="_blank"><span data-picture="">
+<span data-src="http://globalgamejam.org/sites/default/files/styles/sponsor_logo__normal/public/GameSprout%20Logo%20%28710x223%29%20White%20Background.jpg?itok=-0yVyJh-"  data-width="128" data-height="64"></span>
+<span data-media="(min-width: 0)" data-src="http://globalgamejam.org/sites/default/files/styles/sponsor_logo__default/public/GameSprout%20Logo%20%28710x223%29%20White%20Background.jpg?itok=rjxg58-Y"  data-width="100%"></span>
+<span data-media="(min-width: 0) and (min-device-pixel-ratio: 2), (min-width: 0) and (-o-min-device-pixel-ratio: 2), (min-width: 0) and (-webkit-min-device-pixel-ratio: 2), (min-width: 0) and (min-resolution: 2dppx)" data-src="http://globalgamejam.org/sites/default/files/styles/sponsor_logo__default_2x/public/GameSprout%20Logo%20%28710x223%29%20White%20Background.jpg?itok=f-8nfjkc"  data-width="100%"></span>
+<span data-media="(min-width: 740px)" data-src="http://globalgamejam.org/sites/default/files/styles/sponsor_logo__narrow/public/GameSprout%20Logo%20%28710x223%29%20White%20Background.jpg?itok=KrJcSVj-"  data-width="152" data-height="76"></span>
+<span data-media="(min-width: 740px) and (min-device-pixel-ratio: 2), (min-width: 740px) and (-o-min-device-pixel-ratio: 2), (min-width: 740px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 740px) and (min-resolution: 2dppx)" data-src="http://globalgamejam.org/sites/default/files/styles/sponsor_logo__narrow_2x/public/GameSprout%20Logo%20%28710x223%29%20White%20Background.jpg?itok=DrHKwRbl"  data-width="152" data-height="76"></span>
+<span data-media="(min-width: 980px)" data-src="http://globalgamejam.org/sites/default/files/styles/sponsor_logo__normal/public/GameSprout%20Logo%20%28710x223%29%20White%20Background.jpg?itok=-0yVyJh-"  data-width="128" data-height="64"></span>
+<span data-media="(min-width: 980px) and (min-device-pixel-ratio: 2), (min-width: 980px) and (-o-min-device-pixel-ratio: 2), (min-width: 980px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 980px) and (min-resolution: 2dppx)" data-src="http://globalgamejam.org/sites/default/files/styles/sponsor_logo__normal_2x/public/GameSprout%20Logo%20%28710x223%29%20White%20Background.jpg?itok=_QIvju3Z"  data-width="128" data-height="64"></span>
+<span data-media="(min-width: 1220px)" data-src="http://globalgamejam.org/sites/default/files/styles/sponsor_logo__wide/public/GameSprout%20Logo%20%28710x223%29%20White%20Background.jpg?itok=hXTJnric"  data-width="164" data-height="82"></span>
+<span data-media="(min-width: 1220px) and (min-device-pixel-ratio: 2), (min-width: 1220px) and (-o-min-device-pixel-ratio: 2), (min-width: 1220px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 1220px) and (min-resolution: 2dppx)" data-src="http://globalgamejam.org/sites/default/files/styles/sponsor_logo__wide_2x/public/GameSprout%20Logo%20%28710x223%29%20White%20Background.jpg?itok=Qo7DaFLH"  data-width="164" data-height="82"></span>
+<noscript><img typeof="foaf:Image" src="http://globalgamejam.org/sites/default/files/styles/sponsor_logo__normal/public/GameSprout%20Logo%20%28710x223%29%20White%20Background.jpg?itok=-0yVyJh-" width="128" height="64" alt="" /></noscript>
+</span></a></div>  </div></li>
+</ul></div>    </div>
+
+
+</div>  </div>
+</div>
+<div id="block-views-sponsors-additional-block" class="block block--views block--views-sponsors-additional-block">
+        <div class="block__content">
+    <div class="view view-sponsors view-id-sponsors view-display-id-additional_block view-dom-id-16dbed44ea785dca3bae49cd6327b128">
+
+</div>  </div>
+</div>
+<div id="block-boxes-footer-links" class="block block--boxes block-boxes-simple block--boxes-footer-links">
+        <div class="block__content">
+    <div id='boxes-box-footer_links' class='boxes-box'><div class="boxes-box-content"><ul><li><a href="/contact" rel="nofollow">Contact</a></li>
+<li><a href="/press" rel="nofollow">Press</a></li>
+<li><a href="/research" rel="nofollow">Research</a></li>
+<li><a href="/legal" rel="nofollow">Legal</a></li>
+<li><a href="/sponsors" rel="nofollow">Sponsors</a></li>
+<li><a class="twitter social-media" href="http://twitter.com/globalgamejam" rel="nofollow"><span class="icon">Twitter</span></a></li>
+<li><a class="facebook social-media" href="https://facebook.com/GlobalGameJam" rel="nofollow"><span class="icon">Facebook</span></a></li>
+<li><a class="flickr social-media" href="http://www.flickr.com/groups/ggj13/" rel="nofollow"><span class="icon">Flickr</span></a></li>
+<li><a class="gplus social-media" href="http://plus.google.com/+GlobalGameJam" rel="nofollow"><span class="icon">Google Plus</span></a></li>
+<li><a class="pinterest social-media" href="http://pinterest.com/globalgamejam/" rel="nofollow"><span class="icon">Pinterest</span></a></li>
+<li><a class="tumblr social-media" href="http://jamtales.tumblr.com" rel="nofollow"><span class="icon">Tumblr</span></a></li>
+<li><a class="vimeo social-media" href="http://vimeo.com/globalgamejam" rel="nofollow"><span class="icon">Vimeo</span></a></li>
+<li><a class="youtube social-media" href="http://www.youtube.com/user/GlobalGameJam" rel="nofollow"><span class="icon">YouTube</span></a></li>
+</ul></div></div>  </div>
+</div>
+
+  <script src="http://globalgamejam.org/sites/default/files/js/js_3wrGQPDBQybctdh-2ZAYgDxvLTXELT4x2_Nl9oWyhNQ.js"></script>
+</body>
 
                 """
+        self.gameclient = MockWebClient()
+        self.gameclient.load(self.gamedetail)

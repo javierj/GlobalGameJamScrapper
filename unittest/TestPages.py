@@ -35,18 +35,19 @@ class MyTestCase(unittest.TestCase):
         self.assertEquals(gamepage.webclient.url, "XX")
 
     def test_next_url(self):
-        url = self.page.next_url()
+        url = self.page._next_url()
         self.assertEqual(url, "http://globalgamejam.org/2014/games?title=&country=All&city=&tools=All&diversifier=All&platforms=All&page=1")
-        url = self.page.next_url()
+        url = self.page._next_url()
         self.assertEqual(url, "http://globalgamejam.org/2014/games?title=&country=All&city=&tools=All&diversifier=All&platforms=All&page=2")
-        url = self.page.next_url()
+        url = self.page._next_url()
         self.assertEqual(url, "http://globalgamejam.org/2014/games?title=&country=All&city=&tools=All&diversifier=All&platforms=All&page=3")
 
+    # deprecated
     def test_next_page(self):
         nextpage = self.page.next_page()
-        self.assertEqual(nextpage.webclient.url, "http://globalgamejam.org/2014/games?title=&country=All&city=&tools=All&diversifier=All&platforms=All&page=1")
-        nextpage = self.page.next_page()
-        self.assertEqual(nextpage.webclient.url, "http://globalgamejam.org/2014/games?title=&country=All&city=&tools=All&diversifier=All&platforms=All&page=2")
+        #self.assertEqual(nextpage.webclient.url, "http://globalgamejam.org/2014/games?title=&country=All&city=&tools=All&diversifier=All&platforms=All&page=1")
+        #nextpage = self.page.next_page()
+        #self.assertEqual(nextpage.webclient.url, "http://globalgamejam.org/2014/games?title=&country=All&city=&tools=All&diversifier=All&platforms=All&page=2")
 
 
 class TestDetailPage(unittest.TestCase):
@@ -57,6 +58,12 @@ class TestDetailPage(unittest.TestCase):
 
         #print self.detail.sourceHTML()
         #self.assertEquals(Fixture().html, self.detail.sourceHTML())
+
+    def test_get_url(self):
+        self.client = Fixture().client
+        self.detail = DetailPage(self.client)
+        self.assertEqual(self.detail.get_url(), self.client.url)
+
 
 
 if __name__ == '__main__':

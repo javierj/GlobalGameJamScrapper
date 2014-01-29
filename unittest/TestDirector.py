@@ -2,12 +2,13 @@ __author__ = 'Javier'
 
 import unittest
 from testfixture import Fixture
-from globalgamejam.pages import GamePage
+from globalgamejam.pages import GamePage, DetailPage
 from globalgamejam.process import Director
 
 class MyTestCase(unittest.TestCase):
     def setUp(self):
         self.client = Fixture().client
+        self.gameclient = Fixture().gameclient
 
     # Deprecated
     def test_director_enters_web(self):
@@ -28,11 +29,17 @@ class MyTestCase(unittest.TestCase):
 
     # deprecated
     def test_search_engines_in(self):
-        page = GamePage(self.client)
-        director = Director(page)
+        detail = DetailPage(self.gameclient)
+        director = Director(None)
 
-        #director.search_engines_in(director.engines[0])
-        #self.assertEquals(director.enginesused[director.engines[0]], 1)
+        director.search_engines_in(detail)
+
+        self.assertEqual(len(director.readed), 1)
+        result = director.readed[0]
+        #print result
+        #self.assertEquals(result['url'], "xx")
+        expected = {'engine': 'Unity (any product)', 'url': "MockURL", 'name': u'The Return', 'oculus': 'no'}
+        self.assertDictEqual(result, expected)
 
 if __name__ == '__main__':
     unittest.main()

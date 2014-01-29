@@ -5,17 +5,27 @@ class Director():
     def __init__(self, listpage):
         self.listpage = listpage
         self.engines = ["Unity (any product)",
-                        "Corona SDK", "C++", "Web standard", "XNA", "Apple Sprite",
-                        "pygame",
-                        "Flash",
                         "Game Maker",
+                        "Web standard", "XNA", "Apple Sprite",
+                        "pygame",
+                        # Web standard (HTML5, Java, JavaScript, Flash)
+
+                        "Flash",
                         "DirectX",
+                        "LibGDX",
                         "Java",
-                        "Duality"]
+                        "Duality",
+                        "Corona SDK",
+                        "cocos2d-x", "Cocos2D-X",
+                        "C++",
+                        "Blender",
+                        "minecraft",
+                        "Construct 2"]
         self.enginesused = dict()
         for engine in self.engines:
             self.enginesused[engine] = 0
         self.readed = list()
+        self.games = 0
 
     def search_games(self):
         read = True
@@ -25,18 +35,21 @@ class Director():
                 self.search_engines_in(gamepage)
             self.listpage.next_page()
             read = self.listpage.has_next_page()
-            print "Page: ", self.listpage.pagecount
+            print "-- Next Page: ", self.listpage.pagecount+1, ", ", self.listpage.get_url()
 
-            if (self.listpage.pagecount % 10) == 0:
+            if (self.listpage.pagecount % 3) == 0:
                 self.print_stats()
+                self.save_results()
 
 
     def search_engines_in(self, gamepage):
+        self.games += 1
         game = dict()
         game['name'] = gamepage.get_name()
         game['engine'] = ""
         game['engine'] = "not found"
         game['oculus'] = "no"
+        game['url'] = gamepage.get_url()
         for engine in self.engines:
             source = gamepage.sourceHTML()
             if engine in source:
@@ -48,19 +61,25 @@ class Director():
         #if  game['engine'] == "":
             #game['engine'] = "not found"
         self.readed.append(game)
-        print game
+        print game['engine'], ",", "oculus:", game['oculus'], ",", game['url']
 
     def print_stats(self):
-        print "Games: ", len(self.readed)
+        print "Games: ", self.games
         print "Engines: "
+        unkown = 0
         for engine in self.engines:
             print engine, ": ", self.enginesused[engine]
-        self.save_results()
+            unkown +=  self.enginesused[engine]
+        print "Unkown :", self.games - unkown
+
 
     def save_results(self):
-        print "Saving....."
-        with open("games"+str(self.listpage.pagecount)+".txt", 'w') as f:
+        print "Saving.....", self.listpage.pagecount+2
+        # "+str(self.listpage.pagecount)+"
+        with open("games.txt", 'a') as f:
             for game in self.readed:
                 f.write(str(game))
                 f.write("\n")
+        self.readed[:] = []
+
 

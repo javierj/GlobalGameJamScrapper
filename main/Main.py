@@ -6,6 +6,7 @@ import sys
 
 client = WebClient("http://globalgamejam.org/2014/games")
 mainpage = GamePage(client)
+mainpage.next_page()
 director = Director(mainpage)
 
 try:
