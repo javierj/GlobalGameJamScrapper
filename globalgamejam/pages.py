@@ -21,7 +21,7 @@ class WebClient():
 class GamePage(object):
     def __init__(self, webclient):
         self.webclient = webclient
-        self.pagecount = 148
+        self.pagecount = 22
         self.y2014 = re.compile("2014")
         self.result = list()
 
