@@ -4,15 +4,17 @@ from bs4 import UnicodeDammit, BeautifulSoup
 from urllib2 import urlopen
 import re
 
-class WebClient():
+class WebClient(object):
     def __init__(self, url = None):
         self.url = url
         self.bs = None
+
     def sourceCode(self):
-        if self.bs == None:
+        if self.bs is None:
             self.html = urlopen(self.url)
             self.bs = BeautifulSoup(self.html)
         return self.bs
+
     def setUrl(self, url):
         self.url = url
         self.bs = None
@@ -41,11 +43,11 @@ class GamePage(object):
         return DetailPage(WebClient(url))
 
     def _next_url(self):
-
         url = ("http://globalgamejam.org/2014/games?title=&country=All&city=&tools=All&diversifier=All&platforms=All&page="
-                 +str(self.pagecount) )
+            + str(self.pagecount) )
         self.pagecount -= 1
         return url
+
     def has_next_page(self):
         #next = self.pagecount + 1
         #return "/2014/games?title=&country=All&city=&tools=All&diversifier=All&platforms=All&page="+str(next) in str(self.webclient.sourceCode()) or "/2014/games?title=&amp;country=All&amp;city=&amp;tools=All&amp;diversifier=All&amp;platforms=All&amp;page="+str(next) in str(self.webclient.sourceCode())
@@ -53,10 +55,12 @@ class GamePage(object):
 
     def next_page(self):
         self.webclient.setUrl(self._next_url())
+
     def get_url(self):
         return self.webclient.url
 
-class DetailPage():
+
+class DetailPage(object):
     def __init__(self, webclient):
         self.webclient = webclient
 

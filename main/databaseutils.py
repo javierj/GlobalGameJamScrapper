@@ -2,19 +2,21 @@ __author__ = 'Javier'
 
 import sqlite3
 
-class SQLiteDatabase():
+
+class SQLiteDatabase:
     def __init__(self):
         self.conn = sqlite3.connect('../database/gamejam.db')
 
     def exist_name(self, name):
         c = self.conn.cursor()
-        sql = """SELECT name FROM GAMES WHERE name = " """+ name + """ "; """
+        sql = """SELECT name FROM GAMES WHERE name = " """ + name + """ "; """
         #print sql
         try:
             res = c.execute(sql)
         except:
             print "Error in: ", sql
-        return res.fetchone() <> None
+            return
+        return res.fetchone() is not None
 
     def execute_insert(self, stm):
         c = self.conn.cursor()
@@ -22,7 +24,7 @@ class SQLiteDatabase():
             c.execute(stm)
         except:
             print "Error in: ", stm
-            None / 2
+            return
         self.conn.commit()
 
     def closeandopen(self):
@@ -30,29 +32,39 @@ class SQLiteDatabase():
         self.conn.close()
         self.conn = sqlite3.connect('../database/gamejam.db')
 
-class File():
+
+class File:
+    def __init__(self):
+        self.f = None
+
     def open(self):
         self.f = open("../pages/games.txt", "r")
+
     def nextgame(self):
         return eval(self.f.readline())
+
     def close(self):
         self.f.close()
 
 
-class GUI():
+class GUI:
     def game_exists(self, game):
         print "Game already exists: ", game
+
     def games_inserted(self, num):
-       print "Games: ", num
+        print "Games: ", num
+
     def inserted(self, game):
         print "Inserted: ", game
 
-class InsertDatosFromTextFile():
-    def __init__(self, database, file, gui = GUI()):
+
+class InsertDatosFromTextFile:
+    def __init__(self, database, pfile, gui=GUI()):
         self.database = database
-        self.file = file
+        self.file = pfile
         self.gui = gui
         self.dbname = "games"
+        self.games = 0
 
     def insert(self):
         self.file.open()
@@ -66,14 +78,13 @@ class InsertDatosFromTextFile():
                     + """ VALUES (" """ + game['engine']
                     + """ ",' """+game['url'] + """ '," """
                     + name + """ ", ' """
-                    +game['oculus'] + "');"
+                    + game['oculus'] + "');"
                 )
                 self.database.execute_insert(sqlinsert)
                 self.gui.inserted(game)
                 self.games += 1
             else:
                 self.gui.game_exists(game)
-
             game = self.file.nextgame()
         self.file.close()
         self.gui.games_inserted(self.games)
